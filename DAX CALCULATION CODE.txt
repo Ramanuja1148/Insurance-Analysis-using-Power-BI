@@ -1,0 +1,212 @@
+FOR COO DATA
+=======================================================================
+1.) DAX Calculation for Inforce.
+---> Inforce = 
+CALCULATE(
+	COUNTA('COO_DATA'[POLICY_CODE]),
+	'COO_DATA'[STATUS_NAME] IN { "Inforce" }
+)
+
+2.) DAX Calculation for Lapsed.
+---> Lapsed = 
+CALCULATE(
+	COUNTA('COO_DATA'[POLICY_CODE]),
+	'COO_DATA'[STATUS_NAME] IN { "Lapsed" }
+)  
+
+3.) DAX Calculation for Terminated.
+---> terminated = 
+CALCULATE(
+	COUNTA('COO_DATA'[POLICY_CODE]),
+	'COO_DATA'[STATUS_NAME] IN { "Terminated" }
+)
+
+4.) DAX Calculation for Waiting for validate.
+---> Waiting for Validate = 
+CALCULATE(
+	COUNTA('COO_DATA'[POLICY_CODE]),
+	'COO_DATA'[STATUS_NAME] IN { "Waiting for Validate" }
+)
+=======================================================================
+FOR UNCONFORMED PDS
+=======================================================================
+5.) DAX Calculation for FEE_AMOUNT for BSO.
+---> FEE_AMOUNT for BSO = 
+CALCULATE(
+	SUM('UNCONFIRMED_PDs'[FEE_AMOUNT]),
+	'UNCONFIRMED_PDs'[PAY_MODE] IN { "BSO" }
+)
+
+6.) DAX Calculation for FEE_AMOUNT for Cash 2.
+---> FEE_AMOUNT for Cash 2 = 
+CALCULATE(
+	SUM('UNCONFIRMED_PDs'[FEE_AMOUNT]),
+	'UNCONFIRMED_PDs'[PAY_MODE] IN { "Cash" }
+)
+
+7.) DAX Calculation for FEE_AMOUNT for Cheque 2.
+---> FEE_AMOUNT for Cheque 2 = 
+CALCULATE(
+	SUM('UNCONFIRMED_PDs'[FEE_AMOUNT]),
+	'UNCONFIRMED_PDs'[PAY_MODE] IN { "Cheque" }
+) 
+
+8.) DAX Calculation for FEE_AMOUNT for DDE 2.
+---> FEE_AMOUNT for DDE 2 = 
+CALCULATE(
+	SUM('UNCONFIRMED_PDs'[FEE_AMOUNT]),
+	'UNCONFIRMED_PDs'[PAY_MODE] IN { "DDE" }
+)
+
+9.) DAX Calculation for FEE_AMOUNT for ESO 2.
+---> FEE_AMOUNT for ESO 2 = 
+CALCULATE(
+	SUM('UNCONFIRMED_PDs'[FEE_AMOUNT]),
+	'UNCONFIRMED_PDs'[PAY_MODE] IN { "ESO" }
+) 
+
+10.) DAX Calculation for FEE_AMOUNT for ESO(Electronic) 2.
+---> FEE_AMOUNT for ESO(Electronic) 2 = 
+CALCULATE(
+	SUM('UNCONFIRMED_PDs'[FEE_AMOUNT]),
+	'UNCONFIRMED_PDs'[PAY_MODE] IN { "ESO(Electronic)" }
+)
+
+11.) DAX Calculation for FEE_AMOUNT for ESO(Semi-Electronic) 2.
+---> FEE_AMOUNT for ESO(Semi-Electronic) 2 = 
+CALCULATE(
+	SUM('UNCONFIRMED_PDs'[FEE_AMOUNT]),
+	'UNCONFIRMED_PDs'[PAY_MODE] IN { "ESO(Semi-Electronic)" }
+)
+
+12.) DAX Calculation for FEE_AMOUNT for GSO 2.
+---> FEE_AMOUNT for GSO 2 = 
+CALCULATE(
+	SUM('UNCONFIRMED_PDs'[FEE_AMOUNT]),
+	'UNCONFIRMED_PDs'[PAY_MODE] IN { "GSO" }
+)
+
+13.) DAX Calculation for PAY_BALANCE for DDE 2.
+---> PAY_BALANCE for DDE 2 = 
+CALCULATE(
+	SUM('PENDING_CASH (2)'[PAY_BALANCE]),
+	'PENDING_CASH (2)'[PAY_MODE] IN { "DDE" }
+)
+=======================================================================
+FOR PREMIUM_COLLECTION
+=======================================================================
+14.) DAX Calculation for FEE_AMOUNT for BSO 2.
+---> FEE_AMOUNT for BSO 2 = 
+CALCULATE(
+	SUM('PREMIUM_COLLECTION (2)'[FEE_AMOUNT]),
+	'PREMIUM_COLLECTION (2)'[PAY_MODE] IN { "BSO" }
+)
+
+15.) DAX Calculation for FEE_AMOUNT for Cash.
+---> FEE_AMOUNT for Cash = 
+CALCULATE(
+	SUM('PREMIUM_COLLECTION (2)'[FEE_AMOUNT]),
+	'PREMIUM_COLLECTION (2)'[PAY_MODE] IN { "Cash" }
+)
+
+16.) DAX Calculation for FEE_AMOUNT for Cheque.
+---> FEE_AMOUNT for Cheque = 
+CALCULATE(
+	SUM('PREMIUM_COLLECTION (2)'[FEE_AMOUNT]),
+	'PREMIUM_COLLECTION (2)'[PAY_MODE] IN { "Cheque" }
+)
+
+17.) DAX Calculation for FEE_AMOUNT for DDE.
+---> FEE_AMOUNT for DDE = 
+CALCULATE(
+	SUM('PREMIUM_COLLECTION (2)'[FEE_AMOUNT]),
+	'PREMIUM_COLLECTION (2)'[PAY_MODE] IN { "DDE" }
+)
+
+18.) DAX Calculation for FEE_AMOUNT for ESO.
+---> FEE_AMOUNT for ESO = 
+CALCULATE(
+	SUM('PREMIUM_COLLECTION (2)'[FEE_AMOUNT]),
+	'PREMIUM_COLLECTION (2)'[PAY_MODE] IN { "ESO" }
+)
+
+19.) DAX Calculation for FEE_AMOUNT for ESO(Electronic).
+---> FEE_AMOUNT for ESO(Electronic) = 
+CALCULATE(
+	SUM('PREMIUM_COLLECTION (2)'[FEE_AMOUNT]),
+	'PREMIUM_COLLECTION (2)'[PAY_MODE] IN { "ESO(Electronic)" }
+)
+
+20.) DAX Calculation for FEE_AMOUNT for ESO(Semi-Electronic).
+---> FEE_AMOUNT for ESO(Semi-Electronic) = 
+CALCULATE(
+	SUM('PREMIUM_COLLECTION (2)'[FEE_AMOUNT]),
+	'PREMIUM_COLLECTION (2)'[PAY_MODE] IN { "ESO(Semi-Electronic)" }
+)
+
+21.) DAX Calculation for FEE_AMOUNT for GSO.
+---> FEE_AMOUNT for GSO = 
+CALCULATE(
+	SUM('PREMIUM_COLLECTION (2)'[FEE_AMOUNT]),
+	'PREMIUM_COLLECTION (2)'[PAY_MODE] IN { "GSO" }
+)
+======================================================================
+FOR PENDING CASH
+======================================================================
+22.) DAX Calculation for PAY_BALANCE for BSO.
+---> PAY_BALANCE for BSO = 
+CALCULATE(
+	SUM('PENDING_CASH (2)'[PAY_BALANCE]),
+	'PENDING_CASH (2)'[PAY_MODE] IN { "BSO" }
+)
+
+23.) DAX Calculation for PAY_BALANCE for Cash.
+---> PAY_BALANCE for Cash = 
+CALCULATE(
+	SUM('PENDING_CASH (2)'[PAY_BALANCE]),
+	'PENDING_CASH (2)'[PAY_MODE] IN { "Cash" }
+)
+
+24.) DAX Calculation for PAY_BALANCE for Cheque.
+---> PAY_BALANCE for Cheque = 
+CALCULATE(
+	SUM('PENDING_CASH (2)'[PAY_BALANCE]),
+	'PENDING_CASH (2)'[PAY_MODE] IN { "Cheque" }
+)
+
+25.) DAX Calculation for PAY_BALANCE for DDE.
+---> PAY_BALANCE for DDE = 
+CALCULATE(
+	SUM('PENDING_CASH (2)'[PAY_BALANCE]),
+	'PENDING_CASH (2)'[PAY_MODE] IN { "DDE" }
+)
+
+26.) DAX Calculation for PAY_BALANCE for ESO.
+---> PAY_BALANCE for ESO = 
+CALCULATE(
+	SUM('PENDING_CASH (2)'[PAY_BALANCE]),
+	'PENDING_CASH (2)'[PAY_MODE] IN { "ESO" }
+)
+
+27.) DAX Calculation for PAY_BALANCE for ESO(Electronic).
+---> PAY_BALANCE for ESO(Electronic) = 
+CALCULATE(
+	SUM('PENDING_CASH (2)'[PAY_BALANCE]),
+	'PENDING_CASH (2)'[PAY_MODE] IN { "ESO(Electronic)" }
+)
+
+28.) DAX Calculation for PAY_BALANCE for ESO(Semi-Electronic).
+---> PAY_BALANCE for ESO(Semi-Electronic) = 
+CALCULATE(
+	SUM('PENDING_CASH (2)'[PAY_BALANCE]),
+	'PENDING_CASH (2)'[PAY_MODE] IN { "ESO(Semi-Electronic)" }
+)
+
+29.) DAX Calculation for PAY_BALANCE for GSO.
+---> PAY_BALANCE for GSO = 
+CALCULATE(
+	SUM('PENDING_CASH (2)'[PAY_BALANCE]),
+	'PENDING_CASH (2)'[PAY_MODE] IN { "GSO" }
+)
+
+
